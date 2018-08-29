@@ -35,6 +35,6 @@ class TransformTest: XCTestCase {
     }
 
     func optStringToString(input: String?) -> String {
-        return "modified: \(input)"
+        return "modified: \(input ?? "¯\\_(ツ)_/¯"))"
     }
 }

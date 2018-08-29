@@ -6,7 +6,7 @@ extension Int64: NodeConvertible {}
 
 extension SignedInteger {
     public func makeNode(context: Context = EmptyNode) -> Node {
-        let number = Node.Number(self.toIntMax())
+        let number = Node.Number(Int64(self))
         return .number(number)
     }
 
@@ -15,6 +15,6 @@ extension SignedInteger {
             throw NodeError.unableToConvert(node: node, expected: "\(Self.self)")
         }
 
-        self.init(int.toIntMax())
+        self.init(Int64(int))
     }
 }

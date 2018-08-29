@@ -118,7 +118,7 @@ extension String: PathIndex {
                 return array[idx]
             }
 
-            let value = array.flatMap(self.access)
+            let value = array.compactMap(self.access)
             if value.count > 0 {
                 return type(of: node).init(value)
             }

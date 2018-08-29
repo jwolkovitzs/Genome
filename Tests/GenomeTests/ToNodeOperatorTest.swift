@@ -173,19 +173,19 @@ class ToNodeOperatorTest: XCTestCase {
         let name = node["name"]!.string!
         XCTAssert(name == "Good Business", "name is \(name) expected: Good Business")
         let foundedYear = node["foundedYear"]!.int
-        XCTAssert(foundedYear == 1987, "foundedYear is \(foundedYear) expected: 1987")
+        XCTAssert(foundedYear == 1987, "foundedYear is \(foundedYear ?? "¯\\_(ツ)_/¯") expected: 1987")
         
         // Basic type array
         let locations = node["locations"]!
         XCTAssert(locations == self.locations, "locations is \(locations) expected: \(self.locations)")
         let locationsOptional = node["locationsOptional"]
-        XCTAssert(locationsOptional == self.locations, "locationsOptional is \(locationsOptional) expected: \(self.locations)")
+        XCTAssert(locationsOptional == self.locations, "locationsOptional is \(locationsOptional ?? "¯\\_(ツ)_/¯") expected: \(self.locations)")
         
         // Mappable
         let owner = node["owner"]!
         XCTAssert(owner == self.owner, "owner is \(owner) expected: \(self.owner)")
         let ownerOptional = node["ownerOptional"]
-        XCTAssert(ownerOptional == self.owner, "ownerOptional is \(ownerOptional) expected: \(self.owner)")
+        XCTAssert(ownerOptional == self.owner, "ownerOptional is \(ownerOptional ?? "¯\\_(ツ)_/¯") expected: \(self.owner)")
         
         // Mappable array
         let employees = node["employees"]!
@@ -195,11 +195,11 @@ class ToNodeOperatorTest: XCTestCase {
         
         // Mappable array of arrays
         let employeesArray = node["employeesArray"]!
-        XCTAssert(employeesArray[0] == self.employeesArray[0], "employeesArray[0] is \(employeesArray[0]) expected: \(self.employeesArray[0])")
-        XCTAssert(employeesArray[1] == self.employeesArray[1], "employeesArray[1] is \(employeesArray[1]) expected: \(self.employeesArray[1])")
+        XCTAssert(employeesArray[0] == self.employeesArray[0], "employeesArray[0] is \(employeesArray[0] ?? "¯\\_(ツ)_/¯") expected: \(self.employeesArray[0] ?? "¯\\_(ツ)_/¯")")
+        XCTAssert(employeesArray[1] == self.employeesArray[1], "employeesArray[1] is \(employeesArray[1] ?? "¯\\_(ツ)_/¯") expected: \(self.employeesArray[1] ?? "¯\\_(ツ)_/¯")")
         let employeesOptionalArray = node["employeesOptionalArray"]
-        XCTAssert(employeesOptionalArray![0]! == self.employeesArray[0], "employeesOptionalArray[0] is \(employeesOptionalArray?[0]) expected: \(self.employeesArray[0])")
-        XCTAssert(employeesOptionalArray![1]! == self.employeesArray[1], "employeesOptionalArray[1] is \(employeesOptionalArray?[1]) expected: \(self.employeesArray[1])")
+        XCTAssert(employeesOptionalArray![0]! == self.employeesArray[0], "employeesOptionalArray[0] is \(employeesOptionalArray?[0] ?? "¯\\_(ツ)_/¯") expected: \(self.employeesArray[0] ?? "¯\\_(ツ)_/¯")")
+        XCTAssert(employeesOptionalArray![1]! == self.employeesArray[1], "employeesOptionalArray[1] is \(employeesOptionalArray?[1] ?? "¯\\_(ツ)_/¯") expected: \(self.employeesArray[1] ?? "¯\\_(ツ)_/¯")")
         
         // Mappable dictionary
         let employeesDictionary = node["employeesDictionary"]!
@@ -209,9 +209,9 @@ class ToNodeOperatorTest: XCTestCase {
                   "employeesDictionary[\"1\"] is \(employeesDictionary["1"]!) expected: \(self.employeesDictionary[""]!)")
         let employeesOptionalDictionary = node["employeesOptionalDictionary"]
         XCTAssert(employeesOptionalDictionary!["0"]! == self.employeesDictionary["0"]!,
-                  "employeesOptionalDictionary[\"0\"] is \(employeesOptionalDictionary?["0"]!) expected: \(self.employeesDictionary["0"]!)")
+                  "employeesOptionalDictionary[\"0\"] is \(employeesOptionalDictionary?["0"]! ?? "¯\\_(ツ)_/¯") expected: \(self.employeesDictionary["0"]!)")
         XCTAssert(employeesOptionalDictionary!["1"]! == self.employeesDictionary["1"]!,
-                  "employeesOptionalDictionary[\"1\"] is \(employeesOptionalDictionary?["1"]!) expected: \(self.employeesDictionary["1"]!)")
+                  "employeesOptionalDictionary[\"1\"] is \(employeesOptionalDictionary?["1"]! ?? "¯\\_(ツ)_/¯") expected: \(self.employeesDictionary["1"]!)")
         
         // Mappable dictionary array
         let employeesDictionaryArray = node["employeesDictionaryArray"]!
@@ -221,9 +221,9 @@ class ToNodeOperatorTest: XCTestCase {
                   "employeesDictionaryArray[\"1\"] is \(employeesDictionaryArray["1"]!) expected: \(self.employeesDictionaryArray["1"]!)")
         let employeesOptionalDictionaryArray = node["employeesOptionalDictionaryArray"]
         XCTAssert(employeesOptionalDictionaryArray!["0"]! == self.employeesDictionaryArray["0"]!,
-                  "employeesOptionalDictionaryArray[\"0\"] is \(employeesOptionalDictionaryArray?["0"]!) expected: \(self.employeesDictionaryArray["0"]!)")
+                  "employeesOptionalDictionaryArray[\"0\"] is \(employeesOptionalDictionaryArray?["0"]! ?? "¯\\_(ツ)_/¯") expected: \(self.employeesDictionaryArray["0"]!)")
         XCTAssert(employeesOptionalDictionaryArray!["1"]! == self.employeesDictionaryArray["1"]!,
-                  "employeesOptionalDictionaryArray[\"1\"] is \(employeesOptionalDictionaryArray?["1"]!) expected: \(self.employeesDictionaryArray["1"]!)")
+                  "employeesOptionalDictionaryArray[\"1\"] is \(employeesOptionalDictionaryArray?["1"]! ?? "¯\\_(ツ)_/¯") expected: \(self.employeesDictionaryArray["1"]!)")
         
         // Mappable set
         // Temporarily commented out on linux because it's reordering array
@@ -233,14 +233,14 @@ class ToNodeOperatorTest: XCTestCase {
                   "employeesSet is \(employeesSet) expected: \(self.employeesSet)")
         let employeesOptionalSet = node["employeesOptionalSet"]
         XCTAssert(employeesOptionalSet == self.employeesSet,
-                  "employeesOptionalSet is \(employeesOptionalSet) expected: \(self.employeesSet)")
+                  "employeesOptionalSet is \(employeesOptionalSet ?? "¯\\_(ツ)_/¯") expected: \(self.employeesSet)")
         #endif
 
         // Nil
         let optionalNil = node["optionalNil"]
-        XCTAssertTrue(optionalNil == nil, "optionalNil is \(optionalNil) expected: nil")
+        XCTAssertTrue(optionalNil == nil, "optionalNil is \(optionalNil ?? "¯\\_(ツ)_/¯") expected: nil")
         let optionalNotNil = node["optionalNotNil"]
-        XCTAssertTrue(optionalNotNil != nil, "optionalNotNil is \(optionalNotNil) expected: \(node["optionalNotNil"])")
+        XCTAssertTrue(optionalNotNil != nil, "optionalNotNil is \(optionalNotNil ?? "¯\\_(ツ)_/¯") expected: \(node["optionalNotNil"] ?? "¯\\_(ツ)_/¯")")
     }
     
 }

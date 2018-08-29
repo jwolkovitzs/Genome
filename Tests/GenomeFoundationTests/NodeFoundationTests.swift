@@ -48,7 +48,7 @@ class NodeFoundationTests: XCTestCase {
         let v = [1,2,3,4,5]
         let n = Node(any: v)
         let a = n.array ?? []
-        XCTAssert(a.flatMap { $0.int } == v)
+        XCTAssert(a.compactMap { $0.int } == v)
     }
 
     func testFoundationObject() throws {

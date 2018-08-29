@@ -102,11 +102,11 @@ class BasicTypeTests: XCTestCase {
         XCTAssert(basic.strings == ["hello"])
         
         let node = try basic.makeNode()
-        let ints = node["ints"]!.array!.flatMap { $0.int }
-        let floats = node["floats"]!.array!.flatMap { $0.float }
-        let doubles = node["doubles"]!.array!.flatMap { $0.double }
-        let bools = node["bools"]!.array!.flatMap { $0.bool }
-        let strings = node["strings"]!.array!.flatMap { $0.string }
+        let ints = node["ints"]!.array!.compactMap { $0.int }
+        let floats = node["floats"]!.array!.compactMap { $0.float }
+        let doubles = node["doubles"]!.array!.compactMap { $0.double }
+        let bools = node["bools"]!.array!.compactMap { $0.bool }
+        let strings = node["strings"]!.array!.compactMap { $0.string }
         XCTAssert(ints == [1])
         XCTAssert(floats == [1.5])
         XCTAssert(doubles == [2.5])
