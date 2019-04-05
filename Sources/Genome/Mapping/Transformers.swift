@@ -113,21 +113,21 @@ public final class TwoWayTransformer<InputNodeType: NodeConvertible,
 // MARK: Map Extensions
 
 public extension Map {
-    public func transformFromNode
+    func transformFromNode
         <NodeType: NodeConvertible, TransformedType>
         (with transformer: @escaping (NodeType) throws -> TransformedType)
         -> FromNodeTransformer<NodeType, TransformedType> {
             return FromNodeTransformer(map: self, transformer: transformer)
     }
     
-    public func transformFromNode
+    func transformFromNode
         <NodeType: NodeConvertible, TransformedType>
         (with transformer: @escaping (NodeType?) throws -> TransformedType)
         -> FromNodeTransformer<NodeType, TransformedType> {
             return FromNodeTransformer(map: self, transformer: transformer)
     }
     
-    public func transformToNode
+    func transformToNode
         <ValueType, NodeOutputType: NodeConvertible>
         (with transformer: @escaping (ValueType) throws -> NodeOutputType)
         -> ToNodeTransformer<ValueType, NodeOutputType> {
